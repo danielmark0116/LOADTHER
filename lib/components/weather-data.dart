@@ -5,8 +5,12 @@ import '../styleguide/colors.dart';
 class WeatherDataComponent extends StatefulWidget {
   String cityName;
   int cityTemp;
+  var weatherColor;
 
-  WeatherDataComponent({@required this.cityName, @required this.cityTemp});
+  WeatherDataComponent(
+      {@required this.cityName,
+      @required this.cityTemp,
+      @required this.weatherColor});
 
   @override
   _WeatherDataComponentState createState() => _WeatherDataComponentState();
@@ -18,6 +22,7 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
   int temp;
   String city;
   double skew = 0.2;
+  var color;
 
   AnimationController controller;
   Animation animation;
@@ -28,6 +33,7 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
     setState(() {
       city = widget.cityName;
       temp = widget.cityTemp;
+      color = widget.weatherColor;
     });
 
     controller =
@@ -78,8 +84,8 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
               '$temp°',
               style: TextStyle(
                 fontFamily: 'PlayfairDisplay',
-                fontSize: blockSizeW * 15,
-                color: styleYellow,
+                fontSize: blockSizeH * 7,
+                color: color,
               ),
             ),
           ),
@@ -89,9 +95,9 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
           child: Opacity(
             opacity: 1 * animation.value,
             child: Text(
-              'IN',
+              'It\'s sunny in',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: blockSizeH * 2,
                 color: styleGrey,
                 fontWeight: FontWeight.w300,
               ),
@@ -103,7 +109,7 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
           child: Text(
             '${city.toUpperCase()}',
             style: TextStyle(
-              fontSize: blockSizeW * 10 * animation.value,
+              fontSize: blockSizeH * 5 * animation.value,
               color: styleGrey,
             ),
           ),

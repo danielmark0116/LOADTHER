@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BgNoShadow extends StatefulWidget {
+  var color;
+
+  BgNoShadow({@required this.color});
   @override
   _BgNoShadowState createState() => _BgNoShadowState();
 }
@@ -21,7 +24,7 @@ class _BgNoShadowState extends State<BgNoShadow> {
         var responsizeFix;
 
         if (sizeData.size.height < 700) {
-          responsizeFix = blockSizeH.toDouble() * 5;
+          responsizeFix = blockSizeH.toDouble() * 5.5;
         } else {
           responsizeFix = 0.0;
         }

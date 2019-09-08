@@ -15,6 +15,9 @@ const skew = 0.01;
 const skew2 = 0.07;
 
 class BackgroundClouds extends StatefulWidget {
+  var color;
+
+  BackgroundClouds({@required this.color});
   @override
   _BackgroundCloudsState createState() => _BackgroundCloudsState();
 }
@@ -30,6 +33,7 @@ class _BackgroundCloudsState extends State<BackgroundClouds>
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
     animation = CurvedAnimation(curve: Curves.easeOutCubic, parent: controller);
+    // animation = CurvedAnimation(curve: Curves.bounceOut, parent: controller);
 
     controller.forward();
 
@@ -64,8 +68,8 @@ class _BackgroundCloudsState extends State<BackgroundClouds>
           origin: Offset(0, 1000),
           child: Stack(
             children: <Widget>[
-              BgShadow(),
-              BgNoShadow(),
+              BgShadow(color: widget.color),
+              BgNoShadow(color: widget.color),
             ],
           ),
         );

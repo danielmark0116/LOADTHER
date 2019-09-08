@@ -24,6 +24,8 @@ class _MainScreenState extends State<MainScreen> {
 
     double responsizeFix;
 
+    var weatherColor = styleBlue;
+
     if (sizeData.height < 700) {
       responsizeFix = 25.0;
     } else {
@@ -31,16 +33,17 @@ class _MainScreenState extends State<MainScreen> {
     }
 
     return Scaffold(
-      backgroundColor: styleYellow,
+      backgroundColor: weatherColor,
       body: Stack(
         children: <Widget>[
-          BackgroundClouds(),
+          BackgroundClouds(color: weatherColor),
           Column(
             children: <Widget>[
               WeatherIcon(),
               WeatherDataComponent(
                 cityName: 'Hawkins',
                 cityTemp: 27,
+                weatherColor: weatherColor,
               ),
             ],
           ),

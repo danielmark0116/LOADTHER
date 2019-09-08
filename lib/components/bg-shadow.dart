@@ -11,6 +11,9 @@ const offset = Offset(
 );
 
 class BgShadow extends StatefulWidget {
+  var color;
+
+  BgShadow({@required this.color});
   @override
   _BgShadowState createState() => _BgShadowState();
 }
@@ -31,7 +34,7 @@ class _BgShadowState extends State<BgShadow> {
         var responsizeFix;
 
         if (sizeData.size.height < 700) {
-          responsizeFix = blockSizeH.toDouble() * 5;
+          responsizeFix = blockSizeH.toDouble() * 5.5;
         } else {
           responsizeFix = 0.0;
         }

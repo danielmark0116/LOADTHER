@@ -13,7 +13,7 @@ class _WeatherIconState extends State<WeatherIcon>
   AnimationController _controller;
   Animation animation;
 
-  double icoSize = 30;
+  double icoSize = 17;
 
   @override
   void initState() {
@@ -57,8 +57,8 @@ class _WeatherIconState extends State<WeatherIcon>
         scale: 1 * animation.value,
         child: Container(
           margin: EdgeInsets.only(top: 20),
-          width: blockSizeW * icoSize,
-          height: blockSizeW * icoSize,
+          width: blockSizeH * icoSize,
+          height: blockSizeH * icoSize,
           child: Align(
             alignment: Alignment.center,
             child: Image.asset('assets/images/sun-clouds.png'),
