@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
 
     double responsizeFix;
 
-    var weatherColor = styleBlue;
+    var weatherColor = styleYellow;
 
     if (sizeData.height < 700) {
       responsizeFix = 25.0;
