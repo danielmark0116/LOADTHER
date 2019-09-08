@@ -13,8 +13,7 @@ class _WeatherIconState extends State<WeatherIcon>
   AnimationController _controller;
   Animation animation;
 
-  double iconH = 150;
-  double iconW = 150;
+  double icoSize = 30;
 
   @override
   void initState() {
@@ -47,14 +46,19 @@ class _WeatherIconState extends State<WeatherIcon>
 
   @override
   Widget build(BuildContext context) {
+    var sizeData = MediaQuery.of(context);
+
+    var blockSizeW = sizeData.size.width / 100;
+    var blockSizeH = sizeData.size.height / 100;
+
     return Align(
       alignment: Alignment.center,
       child: Transform.scale(
         scale: 1 * animation.value,
         child: Container(
           margin: EdgeInsets.only(top: 20),
-          width: iconW,
-          height: iconH,
+          width: blockSizeW * icoSize,
+          height: blockSizeW * icoSize,
           child: Align(
             alignment: Alignment.center,
             child: Image.asset('assets/images/sun-clouds.png'),

@@ -17,6 +17,19 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    var sizeData = MediaQuery.of(context).size;
+
+    double sizeBlockH = sizeData.height.toDouble() / 100;
+    double sizeBlockW = sizeData.width.toDouble() / 100;
+
+    double responsizeFix;
+
+    if (sizeData.height < 700) {
+      responsizeFix = 25.0;
+    } else {
+      responsizeFix = 0.0;
+    }
+
     return Scaffold(
       backgroundColor: styleYellow,
       body: Stack(
@@ -32,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: 70),
+            padding: EdgeInsets.only(bottom: sizeBlockH * 10 - responsizeFix),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: MaterialButton(
@@ -41,11 +54,11 @@ class _MainScreenState extends State<MainScreen> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoadingScreen()));
                 },
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(sizeBlockH),
                 child: Text(
                   'UPDATE WEATHER',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: sizeBlockH * 3,
                     color: Colors.white,
                   ),
                 ),

@@ -62,6 +62,11 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
 
   @override
   Widget build(BuildContext context) {
+    var sizeData = MediaQuery.of(context);
+
+    var blockSizeW = sizeData.size.width / 100;
+    var blockSizeH = sizeData.size.height / 100;
+
     return Column(
       children: <Widget>[
         Container(
@@ -73,8 +78,8 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
               '$temp°',
               style: TextStyle(
                 fontFamily: 'PlayfairDisplay',
-                fontSize: 75,
-                color: styleGrey,
+                fontSize: blockSizeW * 15,
+                color: styleYellow,
               ),
             ),
           ),
@@ -86,7 +91,7 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
             child: Text(
               'IN',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 12,
                 color: styleGrey,
                 fontWeight: FontWeight.w300,
               ),
@@ -98,7 +103,7 @@ class _WeatherDataComponentState extends State<WeatherDataComponent>
           child: Text(
             '${city.toUpperCase()}',
             style: TextStyle(
-              fontSize: 50 * animation.value,
+              fontSize: blockSizeW * 10 * animation.value,
               color: styleGrey,
             ),
           ),
